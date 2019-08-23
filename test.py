@@ -1,3 +1,4 @@
+GIT TEST
 import Adafruit_DHT as DHT
 import time, sqlite3
 from datetime import datetime
