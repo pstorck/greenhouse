@@ -32,7 +32,7 @@ def get_temp_data():
     cur.execute("SELECT * FROM dhtreadings")
     rows = cur.fetchall()
     temps = []
-    for i in range(25):
+    for i in range(len(rows)):
         temps.append(rows[i][2])
     return temps
 
@@ -42,7 +42,7 @@ def get_humid_data():
     cur.execute("SELECT * FROM dhtreadings")
     rows = cur.fetchall()
     humids = []
-    for i in range(25):
+    for i in range(len(rows)):
         humids.append(rows[i][3])
     return humids
 
