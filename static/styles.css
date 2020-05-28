@@ -1,0 +1,31 @@
+body {
+    background-color: darkgreen;
+}
+
+.box {
+    height: 30%;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 15px;
+}
+
+.measurement {
+    text-align: center;
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+.measurement h1 {
+    color: darkgreen;
+    padding-top: 25px;
+    font-size: 50px;
+}
+
+.graph {
+    display: block;
+    float: right;
+    width: 75%;
+}

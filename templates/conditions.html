@@ -2,7 +2,9 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="30">
   <title>Line Chart Test</title>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
   <script language="JavaScript">
   function displayLineChart() {
@@ -44,20 +46,40 @@
     };
     var ctx = document.getElementById("lineChart").getContext("2d");
     var ctx2 = document.getElementById("lineChart2").getContext("2d");
-    var options = { };
-    var lineChart = new Chart(ctx).Line(temp_data, options);
-    var lineChart2 = new Chart(ctx2).Line(humid_data, options);
+    var lineChart = new Chart(ctx).Line(temp_data);
+    var lineChart2 = new Chart(ctx2).Line(humid_data);
+  }
+
+  function updateCurrents() {
+    document.getElementById("curTemp").innerHTML = '{{ cur_temp }}°C';
+    document.getElementById("curHumid").innerHTML = '{{ cur_humid }}%'
   }
 </script>
 </head>
-<body onload="displayLineChart();">
-  <h3>Temperature:</h3>
+<body onload="displayLineChart(); updateCurrents();">
   <div class="box">
-    <canvas id="lineChart" height="250" width="1000"></canvas>
+    <div class="measurement">
+      <h3>Temperature:</h3>
+      <h1 id="curTemp"></h1>
+    </div>
+    <div class="graph">
+      <canvas id="lineChart" height="250" width="1000"></canvas>
+    </div>
   </div>
-  <h3>Humidity:</h3>
   <div class="box">
-    <canvas id="lineChart2" height="250" width="1000"></canvas>
+    <div class="measurement">
+      <h3>Humidity:</h3>
+      <h1 id="curHumid"></h1>
+    </div>
+    <div class="graph">
+      <canvas id="lineChart2" height="250" width="1000"></canvas>
+    </div>
+  </div>
+  <div class="box">
+    <div class="measurement">
+      <h3>Soil Moisture:</h3>
+      <h1>COMING SOON!</h1>
+    </div>
   </div>
 </body>
 </html>
